@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import SelectRole from "./pages/SelectRole";
+
 
 export default function App() {
   return (
@@ -21,6 +23,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/select-role" element={<SelectRole />} />
         <Route path="/interview" element={<Interview />} />
         <Route path="/results" element={<Results />} />
         <Route path="/history" element={<History />} />

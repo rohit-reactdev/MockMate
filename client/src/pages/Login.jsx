@@ -31,7 +31,17 @@ export default function Login() {
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
+
+     const res = await axios.post("/auth/login", {
+    email,
+    password
+  });
+
+      dispatch(loginSuccess(res.data));
+      navigate("/dashboard");
   };
+
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 dark:text-white px-4">
