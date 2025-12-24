@@ -17,31 +17,23 @@ export default function Login() {
     const password = e.target.password.value;
 
     try {
-      const res = await axios.post("https://mockmate-d7r1.onrender.com/api/auth/login", {
+      // ✅ ONLY ONE REQUEST
+      const res = await axios.post("/api/auth/login", {
         email,
         password,
       });
 
-      // Save in Redux + localStorage
+      // Save auth data
       dispatch(loginSuccess(res.data));
 
       // Redirect
       navigate("/dashboard");
 
     } catch (err) {
+      console.error("Login error:", err);
       setError(err.response?.data?.message || "Login failed");
     }
-
-     const res = await axios.post("/auth/login", {
-    email,
-    password
-  });
-
-      dispatch(loginSuccess(res.data));
-      navigate("/dashboard");
   };
-
-  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 dark:text-white px-4">
@@ -79,7 +71,9 @@ export default function Login() {
 
         <p className="mt-4 text-center text-gray-600 dark:text-gray-300">
           Don't have an account?{" "}
-          <Link className="text-blue-600 dark:text-blue-400" to="/signup">Signup</Link>
+          <Link className="text-blue-600 dark:text-blue-400" to="/signup">
+            Signup
+          </Link>
         </p>
       </div>
     </div>

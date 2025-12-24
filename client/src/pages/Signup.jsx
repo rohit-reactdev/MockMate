@@ -16,7 +16,8 @@ export default function Signup() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("/auth/signup", {
+      // ✅ CORRECT ENDPOINT
+      const res = await axios.post("/api/auth/signup", {
         name,
         email,
         password,

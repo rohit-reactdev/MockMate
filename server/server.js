@@ -13,14 +13,16 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://mockmate.officialrohityadav0108.workers.dev",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "https://mockmate.officialrohityadav0108.workers.dev",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: false,
   })
 );
+
+// 🔥 IMPORTANT: handle preflight properly
+app.options("/api/*", cors());
+
 
 
 app.use(express.json());
