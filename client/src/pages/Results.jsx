@@ -13,7 +13,7 @@ export default function Results() {
 
   useEffect(() => {
     if (!saved) {
-      axios.post("http://localhost:5000/api/interview/save-session", {
+      axios.post("https://mockmate-d7r1.onrender.com/api/interview/save-session", {
         role,
         questions,
         answers,

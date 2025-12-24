@@ -17,7 +17,7 @@ export default function Login() {
     const password = e.target.password.value;
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("https://mockmate-d7r1.onrender.com/api/auth/login", {
         email,
         password,
       });

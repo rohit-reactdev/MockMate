@@ -22,7 +22,7 @@ export default function Interview() {
       return;
     }
 
-    axios.post("http://localhost:5000/api/interview/questions", { role })
+    axios.post("https://mockmate-d7r1.onrender.com/api/interview/questions", { role })
       .then(res => {
         const q = res.data.questions.split("\n\n").filter(q => q.trim() !== "");
         dispatch(setQuestions(q));
@@ -36,7 +36,7 @@ export default function Interview() {
 
     const question = questions[currentIndex];
 
-    const res = await axios.post("http://localhost:5000/api/interview/evaluate", {
+    const res = await axios.post("https://mockmate-d7r1.onrender.com/api/interview/evaluate", {
       question,
       answer
     });

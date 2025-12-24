@@ -5,7 +5,7 @@ export default function History() {
   const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/interview/history")
+    axios.get("https://mockmate-d7r1.onrender.com/api/interview/history")
       .then(res => setSessions(res.data));
   }, []);
 
