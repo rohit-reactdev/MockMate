@@ -1,8 +1,9 @@
-import axios from "axios";
+import axiosInstance from "./axiosConfig";
 
-const API = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-  withCredentials: true, // only if using cookies
+axiosInstance.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
 });
 
-export default API;
+export default axiosInstance;
